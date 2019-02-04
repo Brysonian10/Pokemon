@@ -22,6 +22,8 @@ public class PokedexController
 		pokemonList.add(new Eevee());
 		pokemonList.add(new Snorlax());
 		pokemonList.add(new Magikarp());
+		pokemonList.add(new Piplup());
+		pokemonList.add(new Jigglypuff());
 	}
 	
 	public void start()
