@@ -2,8 +2,9 @@ package pokemon.view;
 
 import pokemon.controller.PokedexController;
 import pokemon.view.PokedexPanel;
+import javax.swing.*;
 
-public class PokedexFrame
+public class PokedexFrame extends JFrame
 {
 	private PokedexController appController;
 	private PokedexPanel appPanel;
@@ -13,10 +14,15 @@ public class PokedexFrame
 		super();
 		this.appController = appController;
 		this.appPanel = new PokedexPanel(appController);
+		setupFrame();
 	}
 	
 	private void setupFrame()
 	{
-		
+		this.setContentPane(appPanel);
+		this.setSize(800, 600);
+		this.setTitle("Chatbot 2.0");
+		this.setResizable(false);
+		this.setVisible(true);
 	}
 }
