@@ -133,4 +133,5 @@ public class PokedexPanel extends JPanel
 		DefaultComboBoxModel<String> temp = new DefaultComboBoxModel<String>(app.buldPokedexText());
 		pokedexDropdown.setModel(temp);
 	}
+	
 }
