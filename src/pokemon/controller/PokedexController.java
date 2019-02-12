@@ -2,7 +2,7 @@ package pokemon.controller;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-
+import pokemon.view.*;
 import pokemon.model.*;
 
 public class PokedexController
@@ -14,10 +14,11 @@ public class PokedexController
 	{
 		pokemonList = new ArrayList<Pokemon>();
 		addPokemon();
-		appFrame - new PokedexFrame(this);
+		appFrame = new PokedexFrame(this);
+		
 	}
 	
-	private void adddPokemon()
+	private void addPokemon()
 	{
 		pokemonList.add(new Eevee());
 		pokemonList.add(new Snorlax());
@@ -34,5 +35,6 @@ public class PokedexController
 	public ArrayList<Pokemon> getPokemonList()
 	{
 		
+		return getPokemonList();
 	}
 }
