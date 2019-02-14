@@ -143,7 +143,7 @@ public class PokedexPanel extends JPanel
 	
 	private void sendDataToController()
 	{
-		int index = pokedexDropdown.getSelectedItem();
+		int index = pokedexDropdown.getSelectedIndex();
 		
 		if(appController.isInt(attackField.getText()) && appController.isDouble(enhancementField.getText()) && appController.isInt(healthField.getText()))
 		{
