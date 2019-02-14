@@ -110,6 +110,15 @@ public class PokedexPanel extends JPanel
 				//stuff goes here when pressed
 			}
 		});
+		
+		pokedexDropdown.addActionListener(new ActionListener()
+		{
+			public void actionPerformmed(ActionEvent selection)
+			{
+				String name = pokedexDropdown.getSelectedItem().toString();
+				changeImageDisplay(name);
+			}
+		});
 	}
 	
 	private void setupPanel()
