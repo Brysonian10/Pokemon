@@ -29,11 +29,15 @@ public class PokedexPanel extends JPanel
 	private JLabel enhanceLabel;
 	private JLabel imageLabel;
 	
+	private ImageIcon pokemonIcon;
+	
 	public PokedexPanel(PokedexController appController)
 	{
 		super();
 		this.appController = appController;
 		this.appLayout = new SpringLayout();
+		
+		this.pokemonIcon = new ImageIcon(getClass().getResource("/pokemon/view/images/magikarp.png"));
 		
 		changeButton = new JButton("click here to change the pokevalues");
 		appLayout.putConstraint(SpringLayout.WEST, changeButton, 0, SpringLayout.WEST, this);
@@ -52,9 +56,12 @@ public class PokedexPanel extends JPanel
 		evolveLabel = new JLabel("Your Pokemon can evolve too: ");
 		attackLabel = new JLabel("Your Pokemon's attack is: ");
 		enhanceLabel = new JLabel("Your Pokemon's enhancement level is: ");
-		imageLabel = new JLabel("pokemon goes here");
+		imageLabel = new JLabel("pokemon goes here", pokemonIcon, JLabel.CENTER);
+		appLayout.putConstraint(SpringLayout.NORTH, imageLabel, 66, SpringLayout.SOUTH, attackField);
+		appLayout.putConstraint(SpringLayout.SOUTH, imageLabel, -88, SpringLayout.SOUTH, this);
 		pokedexDropdown = new JComboBox<String>();
 		appLayout.putConstraint(SpringLayout.NORTH, pokedexDropdown, -4, SpringLayout.NORTH, attackLabel);
+		appLayout.putConstraint(SpringLayout.WEST, pokedexDropdown, 0, SpringLayout.WEST, this);
 		
 		setupLayout();
 		setupListeners();
@@ -89,6 +96,8 @@ public class PokedexPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.WEST, nameField, -174, SpringLayout.EAST, this);
 		appLayout.putConstraint(SpringLayout.SOUTH, nameField, -99, SpringLayout.SOUTH, this);
 		appLayout.putConstraint(SpringLayout.EAST, nameField, -71, SpringLayout.EAST, this);
+		appLayout.putConstraint(SpringLayout.WEST, imageLabel, 102, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.WEST, imageLabel, 210, SpringLayout.WEST, this);
 		
 	}
 	
@@ -114,24 +123,55 @@ public class PokedexPanel extends JPanel
 		this.add(enhanceLabel);
 		this.add(nameLabel);
 		this.add(healthField);
-		imageLabel = new JLabel("pokemon goes here");
-		appLayout.putConstraint(SpringLayout.WEST, pokedexDropdown, 0, SpringLayout.WEST, imageLabel);
-		appLayout.putConstraint(SpringLayout.NORTH, imageLabel, 0, SpringLayout.NORTH, evolveLabel);
-		appLayout.putConstraint(SpringLayout.WEST, imageLabel, 10, SpringLayout.WEST, this);
-		this.add(imageLabel);
 		this.add(numberField);
 		this.add(attackField);
 		this.add(evolveField);
 		this.add(nameField);
 		this.add(enhancementField);
 		this.add(pokedexDropdown);
+		this.add(imageLabel);
+		imageLabel.setVerticalTextPosition(JLabel.BOTTOM);
+		imageLabel.setHorizontalTextPosition(JLabel.CENTER);
 		
 	}
 	
 	private void setupDropdown()
 	{
-		DefaultComboBoxModel<String> temp = new DefaultComboBoxModel<String>(app.buldPokedexText());
+		DefaultComboBoxModel<String> temp = new DefaultComboBoxModel<String>(appController.buildPokedexText());
 		pokedexDropdown.setModel(temp);
 	}
+	
+	private void sendDataToController()
+	{
+		int index = pokedexDropdown.getSelectedItem();
+		
+		if(appController.isInt(attackField.getText()) && appController.isDouble(enhancementField.getText()) && appController.isInt(healthField.getText()))
+		{
+			String [] data = new String[5];
+			
+			//insert code here
+			appController.updatePokemon(index, data);
+		}
+		
+	}
+	
+	public void changeImageDisplay(String name)
+	{
+		String path = "/pokemon/view/images/";
+		String defaultName = "magikarp";
+		String extension = ".png";
+		try
+		{
+			pokemonIcon = new ImageIcon(getClass().getResource(path + name.toLowerCase() + extension));
+		}
+		catch (NullPointerException missingFile)
+		{
+			pokemonIcon = new ImageIcon(getClass().getResource(path + defaultName + extension));
+		}
+		imageLabel.setIcon(pokemonIcon);
+		repaint();
+	}
+	
+	
 	
 }

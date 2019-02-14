@@ -20,11 +20,11 @@ public class PokedexController
 	
 	private void addPokemon()
 	{
-		pokemonList.add(new Eevee());
-		pokemonList.add(new Snorlax());
-		pokemonList.add(new Magikarp());
-		pokemonList.add(new Piplup());
-		pokemonList.add(new Jigglypuff());
+//		pokemonList.add(new Eevee());
+//		pokemonList.add(new Snorlax());
+//		pokemonList.add(new Magikarp());
+//		pokemonList.add(new Piplup());
+//		pokemonList.add(new Jigglypuff());
 	}
 	
 	public void start()
@@ -60,5 +60,43 @@ public class PokedexController
 			names[index] = pokemonList.get(index).getName();
 		}
 		return names;
+	}
+	
+	public boolean isInt(String maybeInt)
+	{
+		boolean isValid = false;
+		try
+		{
+			Integer.parseInt(maybeInt);
+			isValid = true;
+		}
+		catch(NumberFormatException error) 
+		{
+			JOptionPane.showMessageDialog(null, "Your should type an interger value like -989087");
+			
+		}
+		
+		
+		return isValid;
+	}
+	
+	
+	public boolean isDouble(String maybeDouble)
+	{
+		boolean isValid = false;
+		
+		try
+		{
+			Double.parseDouble(maybeDouble);
+			isValid = true;
+		}
+		catch(NumberFormatException error)
+		{
+			JOptionPane.showMessageDialog(null, "This requires a double value aka something with a . >");
+		}
+		
+		
+		
+		return isValid;
 	}
 }
