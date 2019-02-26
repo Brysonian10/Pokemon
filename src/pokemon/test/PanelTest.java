@@ -1,4 +1,4 @@
-package pokemon.tests;
+package pokemon.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -76,11 +76,6 @@ class PanelTest
 			if (examined instanceof JButton)
 			{
 				assertTrue( ((JButton)examined).getActionListeners().length == 1, "Your button must have a listener");
-			}
-			
-			if (examined instanceof JComboBox)
-			{
-				assertTrue( ((JComboBox)examined).getActionListeners().length == 1, "Your JComboBox must have a listener");
 			}
 			
 		}

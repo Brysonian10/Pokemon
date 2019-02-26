@@ -17,4 +17,4 @@ public class WoodyWoodPecker extends Pokemon implements Normal
 		return false;
 	}
 }
-}
+

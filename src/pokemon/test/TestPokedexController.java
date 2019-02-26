@@ -1,4 +1,4 @@
-package pokemon.tests;
+package pokemon.test;
 
 
 import static org.junit.jupiter.api.Assertions.*;
