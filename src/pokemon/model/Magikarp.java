@@ -16,4 +16,5 @@ public class Magikarp extends Pokemon implements Water
 	{
 		return true;
 	}
+	
 }

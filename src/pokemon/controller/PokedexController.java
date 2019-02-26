@@ -20,11 +20,11 @@ public class PokedexController
 	
 	private void addPokemon()
 	{
-//		pokemonList.add(new Eevee());
-//		pokemonList.add(new Snorlax());
-//		pokemonList.add(new Magikarp());
-//		pokemonList.add(new Piplup());
-//		pokemonList.add(new Jigglypuff());
+		pokemonList.add(new Eevee(1, "Eevee"));
+		pokemonList.add(new Snorlax(2, "Snorlax"));
+		pokemonList.add(new Magikarp(3, "Magikarp"));
+		pokemonList.add(new Piplup(4, "Piplup"));
+		pokemonList.add(new Jigglypuff(5,"Jigglypuff"));
 	}
 	
 	public void start()
