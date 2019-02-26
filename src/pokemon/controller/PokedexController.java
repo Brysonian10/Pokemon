@@ -25,6 +25,7 @@ public class PokedexController
 		pokemonList.add(new Magikarp(3, "Magikarp"));
 		pokemonList.add(new Piplup(4, "Piplup"));
 		pokemonList.add(new Jigglypuff(5,"Jigglypuff"));
+		pokemonList.add(new WoodyWoodPecker(6, "WoodyWoodPecker"));
 	}
 	
 	public void start()
@@ -46,8 +47,10 @@ public class PokedexController
 			current.setAttackPoints(Integer.parseInt(data[0]));
 			current.setEnhancementModifier(Double.parseDouble(data[1]));
 			current.setHealthPoints(Integer.parseInt(data[2]));
-			current.setName(data[3]);
-			current.setCanEvolve(Boolean.parseBoolean(data[4]));
+			current.setCanEvolve(Boolean.parseBoolean(data[3]));	
+			current.setName(data[4]);
+			
+			
 		}
 	}
 	

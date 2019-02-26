@@ -21,7 +21,7 @@ public class PokedexFrame extends JFrame
 	{
 		this.setContentPane(appPanel);
 		this.setSize(800, 600);
-		this.setTitle("Chatbot 2.0");
+		this.setTitle("Pokedex");
 		this.setResizable(false);
 		this.setVisible(true);
 	}

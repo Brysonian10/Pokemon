@@ -37,7 +37,7 @@ public class PokedexPanel extends JPanel
 		this.appController = appController;
 		this.appLayout = new SpringLayout();
 		
-		this.pokemonIcon = new ImageIcon(getClass().getResource("/pokemon/view/images/magikarp.png"));
+		this.pokemonIcon = new ImageIcon(getClass().getResource("/pokemon/view/images/eveee.png"));
 		
 		changeButton = new JButton("click here to change the pokevalues");
 		appLayout.putConstraint(SpringLayout.WEST, changeButton, 0, SpringLayout.WEST, this);
@@ -57,11 +57,11 @@ public class PokedexPanel extends JPanel
 		attackLabel = new JLabel("Your Pokemon's attack is: ");
 		enhanceLabel = new JLabel("Your Pokemon's enhancement level is: ");
 		imageLabel = new JLabel("pokemon goes here", pokemonIcon, JLabel.CENTER);
-		appLayout.putConstraint(SpringLayout.NORTH, imageLabel, 66, SpringLayout.SOUTH, attackField);
-		appLayout.putConstraint(SpringLayout.SOUTH, imageLabel, -88, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, imageLabel, -59, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.EAST, imageLabel, -105, SpringLayout.WEST, nameLabel);
 		pokedexDropdown = new JComboBox<String>();
-		appLayout.putConstraint(SpringLayout.NORTH, pokedexDropdown, -4, SpringLayout.NORTH, attackLabel);
-		appLayout.putConstraint(SpringLayout.WEST, pokedexDropdown, 0, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.NORTH, pokedexDropdown, 99, SpringLayout.SOUTH, changeButton);
+		appLayout.putConstraint(SpringLayout.WEST, pokedexDropdown, 42, SpringLayout.WEST, this);
 		
 		setupLayout();
 		setupListeners();
@@ -96,8 +96,6 @@ public class PokedexPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.WEST, nameField, -174, SpringLayout.EAST, this);
 		appLayout.putConstraint(SpringLayout.SOUTH, nameField, -99, SpringLayout.SOUTH, this);
 		appLayout.putConstraint(SpringLayout.EAST, nameField, -71, SpringLayout.EAST, this);
-		appLayout.putConstraint(SpringLayout.WEST, imageLabel, 102, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.WEST, imageLabel, 210, SpringLayout.WEST, this);
 		
 	}
 	
@@ -168,7 +166,7 @@ public class PokedexPanel extends JPanel
 	public void changeImageDisplay(String name)
 	{
 		String path = "/pokemon/view/images/";
-		String defaultName = "magikarp";
+		String defaultName = "eveee";
 		String extension = ".png";
 		try
 		{
